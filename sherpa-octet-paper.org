@@ -1,0 +1,36 @@
+#+OPTIONS: toc:nil author:nil ^:{}
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LATEX_CLASS: revtex4-1
+\title{Hello World}
+
+\author{Student T}
+\affiliation{Physics Department, Duke University,  Durham, NC 27707}
+
+\date{\today}
+
+\begin{abstract}
+Ultrahigh impact article
+\end{abstract}
+
+\pacs{}
+\keywords{sherpa, jets, quarkonium}
+\maketitle
+
+* Introduction
+:PROPERTIES:
+:CUSTOM_ID: sec:intro
+:END:
+
+* Methods
+:PROPERTIES:
+:CUSTOM_ID: sec:detector
+:END: 
+* Results
+:PROPERTIES:
+:CUSTOM_ID: sec:results
+:END: 
+* Conclusion
+:PROPERTIES:
+:CUSTOM_ID: sec:conclusion
+:END: 
+
