@@ -1,4 +1,15 @@
 (require 'org)
+(require 'ox-latex)
+(setq org-latex-pdf-process
+      '("latexmk -pdflatex='xelatex --shell-escape -interaction nonstopmode ' -pdf -bibtex -f %f"))
+(setf org-latex-default-packages-alist
+      (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
+;; (add-to-list 'org-latex-packages-alist '("" "xltxtra" t))
+  ;; Fontify source code
+;; (setq org-latex-listings 'minted)
+;; (add-to-list 'org-latex-packages-alist '("" "minted"))
+;; (add-to-list 'org-latex-packages-alist '("" "soul" t))
+
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
 (add-to-list 'org-latex-classes

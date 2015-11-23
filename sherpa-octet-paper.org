@@ -1,5 +1,5 @@
 #+TITLE: NRQCD Quarkonia Production in Sherpa
-#+AUTHOR:    Bjergaard, D.
+# #+AUTHOR:    Bjergaard, D.
 #+OPTIONS:   H:5 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+LATEX_CLASS: revtex4-1
@@ -63,7 +63,7 @@ average over initial spin and color states of the scattering
 amplitudes and the $\langle 0 | O^{\psi_Q}_{8,1}(n) |0 \rangle$ term
 (abbreviated as $\mathcal{O}^H_{8,1}(n)$) is the long distance matrix
 element (LDME). The quantum numbers $n$ are typically given in
-spectroscopic notation as $^{2S+1}L_{J}^(8,1)$ where the additional
+spectroscopic notation as $^{2S+1}L_{J}^{(8,1)}$ where the additional
 index indicates singlet (1) or octet (8).
 
 Unfortunately this factorization leaves a number of parameters
@@ -96,6 +96,9 @@ quarkonia states.
 :CUSTOM_ID: sec:methods
 :END: 
 ** Singlet
+The matrix elements which arise from color singlet states have been
+available in the literature for quite some time \cite{Gastmans:1986qv}
+\cite{Humpert:1986cy} \cite{Quigg:1979vr}. 
 ** Octet
 ** Shedding color charge
 ** Gluon initiated states
@@ -111,6 +114,7 @@ quarkonia states.
 :PROPERTIES:
 :CUSTOM_ID: sec:conclusion
 :END: 
+\bibliography{sherpa-octet-paper}
 * Appendix
 :PROPERTIES:
 :CUSTOM_ID: sec:appendix
