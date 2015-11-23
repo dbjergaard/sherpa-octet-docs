@@ -87,14 +87,14 @@ data should be included in the fits CITEME, or which LDMEs are
 appropriate given a kinematic regime probed by an experiment CITEME.
 
 The rest of the paper is organized as follows: in section
-\ref{sec:methods} the implementation of the matrix elements is
+[[Methods]] the implementation of the matrix elements is
 discussed, including assumptions and organizations which impact the
-user.  In \ref{sec:results} the results of the implementation are
+user.  In [[Results]] the results of the implementation are
 compared to ATLAS 2011 data at 7 TeV and are compared to Pythia's
 prediction. Additionally, the results of extracting LDMEs from Sherpa
-directly are presented. Finally we conclude in \ref{sec:conclusion}
+directly are presented. Finally we conclude in [[Conclusion]]
 with remarks on the state of the art as well as future directions for
-modeling and experiment.  In the appendix (\ref{sec:appendix}) the
+modeling and experiment.  In the appendix ([[Appendix]]) the
 functional form of the matrix elements is collected for each of the
 quarkonia states. 
 
