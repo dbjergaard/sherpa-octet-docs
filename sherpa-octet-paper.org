@@ -1,9 +1,14 @@
-#+TITLE: NRQCD Quarkonia Production in Sherpa
-# #+AUTHOR:    Bjergaard, D.
-#+OPTIONS:   H:5 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
-#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+LATEX_CLASS: revtex4-1
-# #+LATEX_HEADER:\addbibresource{sherpa-octet-paper.bib}
+#+LATEX_CLASS_OPTIONS: [aps,prl,citeautoscript,preprint,citeautoscript,showkeys,floatfix]
+#+OPTIONS: toc:nil author:nil ^:{}
+#+EXPORT_EXCLUDE_TAGS: noexport
+
+#+BIND: org-latex-title-command nil
+
+\title{NRQCD Quarkonia Production in Sherpa}
+\author{David Bjergaard}
+\author{Frank Krauss}
+\date{\today}
 
 #+BEGIN_abstract
 We describe the implementation and validation of quarkonia production
@@ -15,6 +20,8 @@ assumptions used.  Finally we present a novel method of extracting the
 long distance matrix elements needed for experimental comparison to
 data. 
 #+END_abstract
+
+\maketitle
 
 * Introduction
 :PROPERTIES:

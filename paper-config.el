@@ -9,6 +9,7 @@
 ;; (setq org-latex-listings 'minted)
 ;; (add-to-list 'org-latex-packages-alist '("" "minted"))
 ;; (add-to-list 'org-latex-packages-alist '("" "soul" t))
+(setq org-export-allow-bind-keywords t)
 
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
