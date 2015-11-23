@@ -1,36 +1,120 @@
-#+OPTIONS: toc:nil author:nil ^:{}
-#+EXPORT_EXCLUDE_TAGS: noexport
+#+TITLE: NRQCD Quarkonia Production in Sherpa
+#+AUTHOR:    Bjergaard, D.
+#+OPTIONS:   H:5 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+LATEX_CLASS: revtex4-1
-\title{Hello World}
+# #+LATEX_HEADER:\addbibresource{sherpa-octet-paper.bib}
 
-\author{Student T}
-\affiliation{Physics Department, Duke University,  Durham, NC 27707}
-
-\date{\today}
-
-\begin{abstract}
-Ultrahigh impact article
-\end{abstract}
-
-\pacs{}
-\keywords{sherpa, jets, quarkonium}
-\maketitle
+#+BEGIN_abstract
+We describe the implementation and validation of quarkonia production
+using non-relativistic QCD matrix elements in Sherpa.  We validate the
+implementation using properties of the matrix element as well as
+comparing to the cross section measured by ATLAS at 7 TeV.  We present
+a comparison to Pythia and discuss differences in the modeling
+assumptions used.  Finally we present a novel method of extracting the
+long distance matrix elements needed for experimental comparison to
+data. 
+#+END_abstract
 
 * Introduction
 :PROPERTIES:
 :CUSTOM_ID: sec:intro
 :END:
+The production and dynamics of heavy quark bound states (quarkonia)
+simultaneously probe perturbative and non-perturbative aspects of
+quantum chromodynamics (QCD).  The charmonium system has yielded many
+surprises since its discovery in 1974 \cite{PhysRevLett.33.1404}
+\cite{PhysRevLett.33.1406}. In particular, the cross section measured
+at the Tevatron was found to be significantly higher than the leading
+order calculation assuming color singlet production
+\cite{PhysRevlett.79.572}. This lead to the introduction of terms
+arising from the non-relativistic expansion of the QCD lagrangian
+(NRQCD).  
+
+The production and propagation of a bound quark system can be split
+into two scales: the hard process scale, and the relative motion of
+the quarks.  The relative velocity of the quarks ($v$) is assumed to
+be small enough that a hierarchy is formed between the hard scale (the
+quarkonia mass $m$), the momentum, and the kinetic energy
+\cite{Pineda:2011dg}:
+#+BEGIN_LaTeX
+\begin{equation}
+m \gg mv \gg mv^2
+\end{equation}
+#+END_LaTeX
+
+This separation of scales allows a double expansion in the relative
+motion of the quarks (in powers of $v$) and a traditional expansion in
+$\alpha_S$ the strong coupling constant.  This framework provides
+strong predictions about the kinematic dependence of the matrix
+elements in quarkonia production.  The partonic cross section can be
+expressed as:
+#+BEGIN_LaTeX
+  \begin{equation}
+  \frac{d\sigma}{d\hat{t}}(ab \rightarrow Q\overline{Q}[n] c \rightarrow
+  \psi_Q) = \frac{1}{16 \pi \hat{s}^2}
+  \overline{\sum}\left|\mathcal{A}(ab \rightarrow Q\overline{Q}[n] c)_{\text{short}}\right|^2\langle 0 | O^{\psi_Q}_{8,1}(n) |0 \rangle
+  \end{equation}
+#+END_LaTeX
+Here, $a,b$ and $c$ represent initial and final state partons, $n$
+represents the quantum numbers required to specify the state, and
+$\psi_{Q}$ is the final state hadron.  The sum is understood to be the
+average over initial spin and color states of the scattering
+amplitudes and the $\langle 0 | O^{\psi_Q}_{8,1}(n) |0 \rangle$ term
+(abbreviated as $\mathcal{O}^H_{8,1}(n)$) is the long distance matrix
+element (LDME). The quantum numbers $n$ are typically given in
+spectroscopic notation as $^{2S+1}L_{J}^(8,1)$ where the additional
+index indicates singlet (1) or octet (8).
+
+Unfortunately this factorization leaves a number of parameters
+undetermined which must be measured by experiment (the LDMEs).  These
+parameters represent the non-perturbative aspects of the production,
+allowing the perturbative parts (including kinematic dependence) to be
+factored out and calculated using perturbation theory.
+
+NRQCD does not provide a prescription for how to extract the LDMEs
+from data.  This is further complicated by the spectrum of the
+charmonium system since higher excited singlet states "feed down" to
+the lowest J/\psi state.  Furthermore, there is no consensus on which
+data should be included in the fits CITEME, or which LDMEs are
+appropriate given a kinematic regime probed by an experiment CITEME.
+
+The rest of the paper is organized as follows: in section
+\ref{sec:methods} the implementation of the matrix elements is
+discussed, including assumptions and organizations which impact the
+user.  In \ref{sec:results} the results of the implementation are
+compared to ATLAS 2011 data at 7 TeV and are compared to Pythia's
+prediction. Additionally, the results of extracting LDMEs from Sherpa
+directly are presented. Finally we conclude in \ref{sec:conclusion}
+with remarks on the state of the art as well as future directions for
+modeling and experiment.  In the appendix (\ref{sec:appendix}) the
+functional form of the matrix elements is collected for each of the
+quarkonia states. 
 
 * Methods
 :PROPERTIES:
-:CUSTOM_ID: sec:detector
+:CUSTOM_ID: sec:methods
 :END: 
+** Singlet
+** Octet
+** Shedding color charge
+** Gluon initiated states
+** Extracting LDMEs
 * Results
 :PROPERTIES:
 :CUSTOM_ID: sec:results
 :END: 
+** Comparison to Pythia 8
+** Comparison to ATLAS
+** Extracted LDMEs
 * Conclusion
 :PROPERTIES:
 :CUSTOM_ID: sec:conclusion
 :END: 
-
+* Appendix
+:PROPERTIES:
+:CUSTOM_ID: sec:appendix
+:END: 
+** Exploiting Symmetries
+** Singlet Matrix Elements
+** Octet Matrix Elements

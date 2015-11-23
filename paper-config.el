@@ -5,14 +5,9 @@
                  '("revtex4-1"
                    "
 \\documentclass[aps,prl,citeautoscript,preprint,citeautoscript,showkeys,floatfix]{revtex4-1}
-
+\\usepackage{dcolumn}
 \\usepackage{natbib}
-\\usepackage{graphicx}
-\\usepackage{float}
-\\usepackage{amsmath}
-\\usepackage{textcomp}
 \\usepackage[version=3]{mhchem}
-\\usepackage[linktocpage,pdfstartview=FitH,colorlinks,linkcolor=blue,anchorcolor=blue,citecolor=blue,filecolor=blue,menucolor=blue,urlcolor=blue]{hyperref}
 " 
                    ("\\section{%s}" . "\\section{%s}") 
                    ("\\subsection{%s}" . "\\subsection{%s}") 
@@ -26,6 +21,9 @@
 	     '("revtex4-1"
 	       "
 \\documentclass[aps,prl,citeautoscript,preprint,citeautoscript,showkeys,floatfix]{revtex4-1}
+\\usepackage{dcolumn}
+\\usepackage{natbib}
+\\usepackage[version=3]{mhchem}
 " 
                    ("\\section{%s}" . "\\section{%s}") 
                    ("\\subsection{%s}" . "\\subsection{%s}") 
