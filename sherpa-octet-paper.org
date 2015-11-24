@@ -1,5 +1,5 @@
 #+LATEX_CLASS: revtex4-1
-#+LATEX_CLASS_OPTIONS: [aps,prl,citeautoscript,preprint,citeautoscript,showkeys,floatfix]
+#+LATEX_CLASS_OPTIONS: [aps,prl,preprint,citeautoscript,showkeys,floatfix]
 #+OPTIONS: toc:nil author:nil ^:{}
 #+EXPORT_EXCLUDE_TAGS: noexport
 
@@ -58,6 +58,7 @@ elements in quarkonia production.  The partonic cross section can be
 expressed as:
 #+BEGIN_LaTeX
   \begin{equation}
+  \label{eq:xs_total}
   \frac{d\sigma}{d\hat{t}}(ab \rightarrow Q\overline{Q}[n] c \rightarrow
   \psi_Q) = \frac{1}{16 \pi \hat{s}^2}
   \overline{\sum}\left|\mathcal{A}(ab \rightarrow Q\overline{Q}[n] c)_{\text{short}}\right|^2\langle 0 | O^{\psi_Q}_{8,1}(n) |0 \rangle
@@ -105,10 +106,65 @@ quarkonia states.
 ** Singlet
 The matrix elements which arise from color singlet states have been
 available in the literature for quite some time \cite{Gastmans:1986qv}
-\cite{Humpert:1986cy} \cite{Quigg:1979vr}. 
+\cite{Humpert:1986cy} \cite{Quigg:1979vr} and more recently
+\cite{Eichten:1995ch}. Typically the scale of the matrix element is
+related to to the wave function (or its derivatives) at the origin.
+The kinematic dependence is determined by evaluating the Feynman
+diagrams contributing to a process. In order to keep the treatment of
+the matrix elements agnostic of singlet or octet initiated states,
+code only considers LDMEs. The relation is \cite{Bodwin:1994jh}:
+#+BEGIN_LaTeX
+\begin{equation}
+\mathcal{O}^{H}_1(^{2S+1}L_{J}) = \frac{(2L+1)N_{c}}{2\pi}|\overline{R_{H}}|^2
+\end{equation}
+#+END_LaTeX
+
 ** Octet
+The non-relativistic expansion of the QCD lagrangian gives rise to
+Feynman rules which produce pairs of heavy quarks in a color octet
+state.  These states must then radiate at least one gluon in order to
+transition to a color singlet hadron.  The color octet LDMEs are
+extracted by fitting the functional forms of the kinematic cross
+sections to the data.  Fits may select different regions of phase
+space \cite{Gong:2012ug}, include or exclude feed-down effects
+\cite{Butenschoen:2012qr} or exclude production mechanism
+\cite{Faccioli:2014cqa}. It is important that the experimental
+practitioner know what goes into a set of matrix elements before
+comparing them to new experimental data.
+
 ** Shedding color charge
+While NRQCD provides a mechanism for factorizing non-perturbative
+effects from those that can be calculated perturbatively it does not
+provide a prescription for how to handle the color charge of the octet
+state as propagates through space. Here we follow the same approach as
+Pythia and allow the octet state to radiate as a heavy gluon
+\cite{Sjostrand:2007gs}.  The last emission of the quarkonia is a soft
+gluon which allows the quarkonia to transition to a color singlet.
+The merits of this approximation are discussed in the Pythia manual
+under "Timelike Showers". 
+
 ** Gluon initiated states
+Processes which have two gluons in the initial state, must have at
+least one gluon in the final state.  This produces a high degree of
+symmetry in the expressions for the matrix elements when expressed in
+terms of the partonic Mandelstam variables. It is possible to recast
+the mandelstam variables to make this symmetry manifest \cite{Ma:2012ex}:
+#+BEGIN_LaTeX
+\begin{align}
+ S_1& = s + t + u \\
+ S_2& = st + tu + us \\
+ S_3& = stu
+\end{align}
+#+END_LaTeX
+It is clear from inspection that these variables are symmetric under
+exchanges $s\leftrightarrow t$, $u\leftrightarrow s$ and $t
+\leftrightarrow u$. By following the prescription for simplifying
+expressions of $s,t$ and $u$ in terms of $S_1,S_2$ and $S_3$, the
+expressions are shortened on average by a factor of 5-6.  This not
+only makes it easier to verify the correctness of the implemented
+formula, it provides a similar performance increase in the time it
+takes to run the simulation.  
+
 ** Extracting LDMEs
 * Results
 :PROPERTIES:
@@ -126,6 +182,23 @@ available in the literature for quite some time \cite{Gastmans:1986qv}
 :PROPERTIES:
 :CUSTOM_ID: sec:appendix
 :END: 
-** Exploiting Symmetries
-** Singlet Matrix Elements
-** Octet Matrix Elements
+Here we collect the short distance matrix elements as implemented in
+Sherpa.  Where appropriate, the gluon initiated processes have been
+simplified using new variables $S_1,S_2$ and $S_3$. See the body of
+the main text for a definition and discussion of these variables.
+
+** $^1S_0^{(8)}$ 
+#+BEGIN_LaTeX
+\begin{align}
+\overline{\sum}\left|\mathcal{A}(q\bar{q} \rightarrow Q\overline{Q}[^1S_0^{(8)}] g)\right|^2 &= \frac{5(4\pi \alpha_s)^3}{27 M}\frac{t^2 + u^2}{s(s-M^2)^2} \\
+\overline{\sum}\left|\mathcal{A}(gq \rightarrow Q\overline{Q}[^1S_0^{(8)}] q)\right|^2 &= -\frac{5(4\pi \alpha_s)^3}{72 M}\frac{s^2 + u^2}{t(t-M^2)^2} \\
+\overline{\sum}\left|\mathcal{A}(gg \rightarrow Q\overline{Q}[^1S_0^{(8)}] g)\right|^2 &= \frac{5(4\pi \alpha_s)^3}{16 M} \frac{(S_2^2 - S_1 S_3)(S_1^4+2 S_1^2 S_2 + S_2^2 + 2 S_1 S_3)}{(S_3(S_1 S_2 + S_3))^2} 
+\end{align}
+#+END_LaTeX
+** $^1S_0^{(1)}$ 
+
+** $^3S_1$ 
+*** Octet
+*** Singlet
+
+* Quickstart Manual

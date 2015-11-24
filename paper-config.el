@@ -1,14 +1,9 @@
 (require 'org)
 (require 'ox-latex)
 (setq org-latex-pdf-process
-      '("latexmk -pdflatex='xelatex --shell-escape -interaction nonstopmode ' -pdf -bibtex -f %f"))
+      '("latexmk -bibtex -pdflatex='xelatex --shell-escape -interaction nonstopmode' -pdf -f %f"))
 (setf org-latex-default-packages-alist
       (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
-;; (add-to-list 'org-latex-packages-alist '("" "xltxtra" t))
-  ;; Fontify source code
-;; (setq org-latex-listings 'minted)
-;; (add-to-list 'org-latex-packages-alist '("" "minted"))
-;; (add-to-list 'org-latex-packages-alist '("" "soul" t))
 (setq org-export-allow-bind-keywords t)
 
 (unless (boundp 'org-latex-classes)
@@ -16,7 +11,7 @@
 (add-to-list 'org-latex-classes
                  '("revtex4-1"
                    "
-\\documentclass[aps,prl,citeautoscript,preprint,citeautoscript,showkeys,floatfix]{revtex4-1}
+\\documentclass[aps,prl,preprint,citeautoscript,showkeys,floatfix]{revtex4-1}
 \\usepackage{dcolumn}
 \\usepackage{natbib}
 \\usepackage[version=3]{mhchem}
